@@ -12,8 +12,8 @@ jobs:
       - name: Publish to registy
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           name: docker.pkg.github.com/martcarrefour/NestJS_TEST_API/NestJS_TEST_API
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.GITHUB_TOKEN  }}
           tags: 'develop'
