@@ -7,7 +7,7 @@ import { DeleteResult } from 'mongodb';
 
 @Injectable()
 export class ReviewService {
-	constructor(@InjectModel(ReviewModel.name) private readonly reviewModel: Model<ReviewModel>) {}
+	constructor(@InjectModel(ReviewModel.name) private readonly reviewModel: Model<ReviewModel>) { }
 
 	async create(dto: CreateReviewDto): Promise<ObtainDocumentType<ReviewModel>> {
 		return this.reviewModel.create(dto);
@@ -15,7 +15,6 @@ export class ReviewService {
 	async delete(id: string): Promise<ObtainDocumentType<ReviewModel> | null> {
 		return this.reviewModel.findByIdAndDelete(id).exec();
 	}
-
 	async findByProductId(productId: string): Promise<ObtainDocumentType<ReviewModel>[] | null> {
 		return this.reviewModel.find({ productId }).exec();
 	}
